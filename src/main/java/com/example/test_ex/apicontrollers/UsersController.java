@@ -39,14 +39,18 @@ public class UsersController {
      */
     @GetMapping("/users.addNew")
     public ResponseEntity<String> addNew(@RequestParam String  first_name,
-                         @RequestParam String  last_name,
-                         @RequestParam Integer age) {
+                                         @RequestParam String  last_name,
+                                         @RequestParam Integer age,
+                                         @RequestParam String email,
+                                         @RequestParam String phone) {
         User user = User.builder()
                 .first_name(first_name)
                 .last_name(last_name)
                 .age(age)
                 .last_online(LocalDateTime.now())
                 .online(false)
+                .email(email)
+                .phone(phone)
                 .build();
         user = userRepository.save(user);
 

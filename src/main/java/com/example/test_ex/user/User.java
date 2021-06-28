@@ -40,6 +40,14 @@ public class User {
     @NonNull
     private Boolean online;
 
+    @Column(name = "email")
+    @NonNull
+    private String email;
+
+    @Column(name = "phone")
+    @NonNull
+    private String phone;
+
     @Setter
     private static int awayOffset;
 
@@ -59,6 +67,9 @@ public class User {
                 inst.addProperty("online", 1);
             }
         }
+
+        inst.addProperty("email", email);
+        inst.addProperty("phone", phone);
 
         return inst;
     }
